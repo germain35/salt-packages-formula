@@ -13,3 +13,6 @@ include:
   {%- if packages.install is defined %}
   - packages.install
   {%- endif %}
+  {%- if packages.get('autoremove', False) %}
+  - packages.autoremove
+  {%- endif %}
