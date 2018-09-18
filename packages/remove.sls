@@ -1,5 +1,5 @@
-{%- set packages = salt['pillar.get']('packages:remove', []) %}
+{%- from "packages/map.jinja" import packages with context %}
 
 packages_remove:
   pkg.removed:
-    - pkgs: {{ packages }}
+    - pkgs: {{ packages.remove }}

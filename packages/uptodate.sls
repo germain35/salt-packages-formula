@@ -1,4 +1,6 @@
 
+{%- from "packages/map.jinja" import packages with context %}
+
 packages_uptodate:
   pkg.uptodate:
-    - refresh: True
+    - refresh: {{ packages.refresh }}

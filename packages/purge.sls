@@ -1,5 +1,5 @@
-{%- set packages = salt['pillar.get']('packages:purge', []) %}
+{%- from "packages/map.jinja" import packages with context %}
 
 packages_purge:
   pkg.purged:
-    - pkgs: {{ packages }}
+    - pkgs: {{ packages.purge }}

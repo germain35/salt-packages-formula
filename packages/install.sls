@@ -1,6 +1,6 @@
-{%- set packages = salt['pillar.get']('packages:install', {}) %}
+{%- from "packages/map.jinja" import packages with context %}
 
 packages_install:
   pkg.installed:
-    - pkgs: {{ packages }}
-    - refresh: True
+    - pkgs: {{ packages.install }}
+    - refresh: {{ packages.refresh }}
